@@ -47,7 +47,7 @@
 # 国内加速(推荐)
 curl -fsSL "https://mirror.ghproxy.com/https://raw.githubusercontent.com/sublaim/clouddrive2/main/cd2.sh" | bash -s install mirror
 # 代理
-curl -fsSL "https://raw.githubusercontent.com/sublaim/clouddrive2/main/cd2.sh" | bash -s install
+curl -fsSL "https://raw.githubusercontent.com/lonelylose/clouddrive2/main/cd2.sh" | bash -s install
 ```
 
 ### 卸载命令
