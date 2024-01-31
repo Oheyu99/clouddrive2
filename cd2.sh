@@ -197,7 +197,7 @@ INSTALL() {
   # Download clouddrive2
   clouddrive_version=$(curl -s https://api.github.com/repos/cloud-fs/cloud-fs.github.io/releases/latest | grep -Eo "\s\"name\": \"clouddrive-2-$os-$ARCH-.+?\.tgz\"" | awk -F'"' '{print $4}')
   echo -e "\r\n${GREEN_COLOR}下载 clouddrive2 $VERSION ...${RES}"
-  curl -L ${mirror}https://github.com/cloud-fs/cloud-fs.github.io/releases/latest/download/$clouddrive_version -o /tmp/clouddrive.tgz $CURL_BAR
+  curl -L ${mirror}https://github.com/cloud-fs/cloud-fs.github.io/releases/download/v0.6.6/clouddrive-2-linux-x86_64-0.6.6.tgz -o /tmp/clouddrive.tgz $CURL_BAR
   if [ $? -eq 0 ]; then
     echo -e "clouddrive 下载完成"
   else
