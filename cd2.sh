@@ -214,8 +214,8 @@ INSTALL() {
   fi
   # remove temp
   rm -f /tmp/clouddrive*
-  if [ ! -d "/CloudNAS" ]; then
-      mkdir "/CloudNAS"
+  if [ ! -d "/mnt/CloudNAS" ]; then
+      mkdir "/mnt/CloudNAS"
   fi
 }
 
@@ -235,15 +235,15 @@ DOCKER() {
   if [ "$check_docker" == "exist" ]; then
     mount --make-shared /
     echo -e "${GREEN_COLOR}正在下载 clouddrive 镜像，请稍候...${RES}"
-    mkdir -p /CloudNAS /Config /media
+    mkdir -p /mnt/CloudNAS /mnt/docker/clouddrive2/config /mnt/Media
     docker pull cloudnas/clouddrive2:latest 
     docker run -d \
     --name clouddrive \
     --restart unless-stopped \
     --env CLOUDDRIVE_HOME=/Config \
-    -v /CloudNAS:/CloudNAS:shared \
-    -v /Config:/Config \
-    -v /media:/media:shared \
+    -v /mnt/CloudNAS:/CloudNAS:shared \
+    -v /mnt/docker/clouddrive2/config:/Config \
+    -v /mnt/Media:/Media:shared \
     --network host \
     --pid host \
     --privileged \
