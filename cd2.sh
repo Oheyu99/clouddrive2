@@ -246,6 +246,7 @@ DOCKER() {
     -v /mnt/CloudNAS:/mnt/CloudNAS:shared \
     -v /mnt/docker/clouddrive2/config:/Config \
     -v /mnt/Media:/Media:shared \
+    -v /mnt:/mnt:shared \
     --network host \
     --pid host \
     --privileged \
