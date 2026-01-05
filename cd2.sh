@@ -236,17 +236,16 @@ DOCKER() {
     mount --make-shared /
     echo -e "${GREEN_COLOR}正在下载 clouddrive 镜像，请稍候...${RES}"
     mkdir -p /mnt/CloudNAS
-    mkdir -p /mnt/docker/clouddrive2/config
+    mkdir -p /mnt/compose/clouddrive2/config
     mkdir -p /mnt/Media
     docker pull cloudnas/clouddrive2:latest 
     docker run -d \
     --name clouddrive \
     --restart unless-stopped \
     --env CLOUDDRIVE_HOME=/Config \
-    -v /mnt/CloudNAS:/mnt/CloudNAS:shared \
-    -v /mnt/docker/clouddrive2/config:/Config \
+    -v /mnt/CloudNAS:/CloudNAS:shared \
+    -v /mnt/compose/clouddrive2/config:/Config \
     -v /mnt/Media:/Media:shared \
-    -v /mnt:/mnt:shared \
     --network host \
     --pid host \
     --privileged \
